@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>FREDDIESHOW | Музыкальный квиз</title>
+    <title>Квизы | FREDDIESHOW, PROKINO, EASY QUIZEE</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,6 +53,18 @@
             font-size: 16px; color: #555; max-width: 700px; margin: 0 auto;
         }
 
+        /* ---------- ФИЛЬТРЫ ДЛЯ КВИЗОВ ---------- */
+        .quiz-filters {
+            display: flex; flex-wrap: wrap; gap: 12px; margin: 40px 0; justify-content: center;
+        }
+        .quiz-filter-btn {
+            background: #F5F5F7; border: none; border-radius: 40px; padding: 12px 24px;
+            font-size: 15px; font-weight: 500; cursor: pointer; transition: all 0.4s;
+            color: #1D1D1F; font-family: 'Raleway', sans-serif;
+        }
+        .quiz-filter-btn:hover { background: #E8E8ED; transform: translateY(-1px); }
+        .quiz-filter-btn.active { background: #FFD700; color: #1D1D1F; box-shadow: 0 4px 15px rgba(255,215,0,0.25); }
+
         /* ---------- ЧЕРЕДУЮЩИЕСЯ БЛОКИ ---------- */
         .content-section { padding: 40px 0 60px; }
         .content-block {
@@ -71,6 +83,14 @@
             width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
             display: block; object-fit: cover; aspect-ratio: 4/3;
         }
+
+        /* Полнотекстовый блок */
+        .content-text-full {
+            max-width: 800px; margin: 0 auto 60px;
+        }
+
+        .quiz-tab { display: none; }
+        .quiz-tab.active { display: block; }
 
         /* ---------- ФОРМА РЕГИСТРАЦИИ ---------- */
         .registration-section { padding: 40px 0 80px; background: #f8f8fa; border-top: 1px solid #eaeaea; }
@@ -106,6 +126,9 @@
             .t-row { flex-direction: column; gap: 0; }
             .t-form { padding: 24px; }
             .page-header { padding: 100px 20px 30px; }
+            .content-text-full { margin-bottom: 40px; }
+            .quiz-filters { gap: 8px; }
+            .quiz-filter-btn { padding: 10px 16px; font-size: 14px; }
         }
     </style>
 </head>
@@ -119,40 +142,120 @@
 
     <section class="page-header">
         <div class="t-container">
-            <h1 class="page-title">Музыкальный квиз FREDDIESHOW</h1>
-            <p class="page-subtitle">Уникальный формат квиза о музыке. Пользуется огромной популярностью у игроков, поскольку сочетает в себе элементы обычного квиза, дискотеки, караоке и дружеской вечеринки!</p>
+            <h1 class="page-title">Тематические квизы</h1>
+            <p class="page-subtitle">Выбери свой формат! Музыка, кино или классические викторины — развлечение для всех</p>
         </div>
     </section>
 
-    <div class="content-section">
-        <div class="t-container">
-            
-            <div class="content-block">
-                <div class="content-text">
-                    <h2>Что вас ждет на игре?</h2>
-                    <p>Наша игра с первых минут затягивает игроков неповторимой атмосферой настоящего праздника!</p>
+    <div class="t-container">
+        <div class="quiz-filters">
+            <button class="quiz-filter-btn active" onclick="showQuiz('freddieshow')">🎵 FREDDIESHOW</button>
+            <button class="quiz-filter-btn" onclick="showQuiz('prokino')">🎬 PROKINO</button>
+            <button class="quiz-filter-btn" onclick="showQuiz('easyquizee')">🎮 EASY QUIZEE</button>
+        </div>
+    </div>
+
+    <!-- ===== FREDDIESHOW ===== -->
+    <div id="freddieshow" class="quiz-tab active">
+        <div class="content-section">
+            <div class="t-container">
+                <div class="content-block">
+                    <div class="content-text">
+                        <h2>Музыкальный квиз FREDDIESHOW</h2>
+                        <p>Уникальный формат квиза о музыке. Пользуется огромной популярностью у игроков!</p>
+                        <ul>
+                            <li>7 увлекательных туров на музыкальную тематику</li>
+                            <li>Отличная возможность блеснуть эрудицией и музыкальными познаниями</li>
+                            <li>Зажигательная вечеринка под ритм любимых мелодий</li>
+                        </ul>
+                    </div>
+                    <div class="content-image">
+                        <img src="https://i.ibb.co/v6YDYg9p/npz5-R0l4s-OX2-Y5aui-XJZ6-UN-cej-P-aiy7-Znvd-U-pa-S3jmfio-I64f-IY0c-DX0-UDc3-Lh-Iwy-Kal-Jz-f8-W-8-LEpo-O9n.jpg" alt="FREDDIESHOW">
+                    </div>
+                </div>
+
+                <div class="content-block reverse">
+                    <div class="content-text">
+                        <h2>Вселенная FREDDIESHOW</h2>
+                        <p>Добро пожаловать во вселенную тематических игр! Специально для вас мы отобрали самые качественные вопросы и самые горячие треки.</p>
+                        <p>Ждём вас на наших играх! У нас каждый найдёт развлечение по душе, ведь мы способны угодить даже самому требовательному игроку.</p>
+                    </div>
+                    <div class="content-image">
+                        <img src="https://i.ibb.co/n801TFdw/MBe-TF77q-My-YM6q-u4ae-DFRW35-JNXWz53lw-GNL1jk7-UBXHf9v-Jhd-Hb-JMn7zj-Vi-Ubi-Cz-QE6-Ov-T.jpg" alt="Атмосфера">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== PROKINO ===== -->
+    <div id="prokino" class="quiz-tab">
+        <div class="content-section">
+            <div class="t-container">
+                <div class="content-block">
+                    <div class="content-text">
+                        <h2>Квиз о кино PROKINO</h2>
+                        <p>Настоящий рай для киноманов! Проверьте свои знания о фильмах, актерах и режиссерах в увлекательной игре.</p>
+                        <ul>
+                            <li>Раз в году не спите всю ночь на церемонии Оскаров?</li>
+                            <li>Следите за всеми свежими киноновинками?</li>
+                            <li>Тогда это идеальный шанс доказать, что вы настоящий знаток кинематографа!</li>
+                        </ul>
+                    </div>
+                    <div class="content-image">
+                        <img src="https://i.ibb.co/38NzQNK/x5-Qv-GCTH-BHVz-WVIa-QKmj-Ba9-FWLQCU7f41-Ffwbm-XMk-IZArnq-XBcoy-UWQR-NPF2-NDxcgoto6i-J3-EOWlo-Vlt35y.jpg" alt="PROKINO">
+                    </div>
+                </div>
+
+                <div class="content-block reverse">
+                    <div class="content-text">
+                        <h2>Похвастайтесь эрудицией</h2>
+                        <p>Вот уж где действительно получится похвастаться накопленными знаниями об актёрах, знаменитых фильмах и режиссёрах.</p>
+                        <ul>
+                            <li>6 увлекательных тематических туров</li>
+                            <li>Непредсказуемый и динамичный блиц в конце игры</li>
+                            <li>Вопросы, которые порадуют даже самых искушённых киноманов!</li>
+                        </ul>
+                    </div>
+                    <div class="content-image">
+                        <img src="https://i.ibb.co/mCSW5Bf2/UA2-LCOQBOCGBTh-Kw7f-MALSi3058jxd-3-Bl-Bhgo-Sj-Vb-Hkqb-Zg2yzs-GCVJKqx-DV6-Hbzp9-8u-P0-M7-WXmj-G67-Gjw4-G2w.jpg" alt="Игроки">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== EASY QUIZEE ===== -->
+    <div id="easyquizee" class="quiz-tab">
+        <div class="content-section">
+            <div class="t-container">
+                <div class="content-block">
+                    <div class="content-text">
+                        <h2>Тематический квиз EASY QUIZEE</h2>
+                        <p>Это увлекательные состязания, где каждый найдёт тему по душе. Главная особенность — тематика постоянно меняется!</p>
+                        <p><strong>Вас ждут игры по вселенным:</strong></p>
+                        <ul>
+                            <li>Гарри Поттера и мира магии</li>
+                            <li>Киновселенной Марвел (Marvel)</li>
+                            <li>Популярным сериалам, кино и мультфильмам</li>
+                            <li>Спорту, футболу и многим другим темам!</li>
+                        </ul>
+                    </div>
+                    <div class="content-image">
+                        <img src="https://i.ibb.co/ZsdC7tf/Xib-J48-DAvbo3iiut-OCYas-Kadom-P-h-Cr0-Xl5i-Br-Xtg-Mz7-Jh-Jpj58-YZJm-U-i-Npx-vnl-K6-QJamu.jpg" alt="EASY QUIZEE">
+                    </div>
+                </div>
+
+                <div class="content-text-full">
+                    <h2>Нестандартные механики</h2>
+                    <p>EASY QUIZEE отличается от классических викторин. Мы используем нестандартные туры и уникальные игровые механики.</p>
                     <ul>
-                        <li>Вас ждут 7 увлекательных туров на музыкальную тематику.</li>
-                        <li>Отличная возможность блеснуть эрудицией и музыкальными познаниями.</li>
-                        <li>Вы попадёшь на зажигательную вечеринку под ритм любимых мелодий!</li>
+                        <li>Сумеем угодить даже самому требовательному игроку</li>
+                        <li>У нас каждый найдёт квиз по душе</li>
+                        <li>Заряд эмоций и отличного настроения гарантирован!</li>
                     </ul>
                 </div>
-                <div class="content-image">
-                    <img src="https://i.ibb.co/v6YDYg9p/npz5-R0l4s-OX2-Y5aui-XJZ6-UN-cej-P-aiy7-Znvd-U-pa-S3jmfio-I64f-IY0c-DX0-UDc3-Lh-Iwy-Kal-Jz-f8-W-8-LEpo-O9n.jpg" alt="Музыкальный квиз">
-                </div>
             </div>
-
-            <div class="content-block reverse">
-                <div class="content-text">
-                    <h2>Вселенная FREDDIESHOW</h2>
-                    <p>Добро пожаловать во вселенную тематических игр! Специально для вас мы отобрали самые качественные и интересные квизы, чтобы разнообразить ваш досуг. </p>
-                    <p>Ждём вас на наших играх! У нас каждый найдёт развлечение по душе, ведь мы способны угодить даже самому требовательному игроку.</p>
-                </div>
-                <div class="content-image">
-                    <img src="https://i.ibb.co/n801TFdw/MBe-TF77q-My-YM6q-u4ae-DFRW35-JNXWz53lw-GNL1jk7-UBXHf9v-Jhd-Hb-JMn7zj-Vi-Ubi-Cz-QE6-Ov-T.jpg" alt="Атмосфера вечеринки">
-                </div>
-            </div>
-
         </div>
     </div>
 
@@ -160,18 +263,18 @@
         <div class="t-container">
             <div class="t-form">
                 <div class="form-header">
-                    <h2>Регистрация на игру</h2>
-                    <p>Забронируйте столик для своей команды и готовьтесь петь и танцевать!</p>
+                    <h2>Регистрация на квиз</h2>
+                    <p>Выберите формат и забронируйте места для своей команды</p>
                 </div>
                 
                 <form action="https://formspree.io/f/mdalwegw" method="POST">
-                    <input type="hidden" name="_subject" value="Заявка на Музыкальный квиз FREDDIESHOW">
+                    <input type="hidden" name="_subject" value="Заявка на тематический квиз">
                     
                     <div class="t-row">
                         <div class="t-col">
                             <div class="t-input-group">
                                 <label class="t-input-title">Ваше имя</label>
-                                <input type="text" name="Имя" required class="t-input" placeholder="Например, Анна">
+                                <input type="text" name="Имя" required class="t-input" placeholder="Например, Иван">
                             </div>
                         </div>
                         <div class="t-col">
@@ -185,11 +288,11 @@
                     <div class="t-row">
                         <div class="t-col">
                             <div class="t-input-group">
-                                <label class="t-input-title">Дата проведения</label>
-                                <select name="Дата" class="t-select" required>
-                                    <option value="" disabled selected>Выберите дату</option>
-                                    <option value="Ближайшая игра (Дата уточняется)">Ближайшая игра (Дата уточняется)</option>
-                                    <option value="Корпоратив / Частный заказ">Корпоратив / Частный заказ</option>
+                                <label class="t-input-title">Выберите квиз</label>
+                                <select name="Квиз" class="t-select" required>
+                                    <option value="FREDDIESHOW (Музыкальный)">FREDDIESHOW (Музыкальный)</option>
+                                    <option value="PROKINO (Кино)">PROKINO (Кино)</option>
+                                    <option value="EASY QUIZEE (Тематический)">EASY QUIZEE (Тематический)</option>
                                 </select>
                             </div>
                         </div>
@@ -207,15 +310,37 @@
                     </div>
 
                     <div class="t-input-group">
-                        <label class="t-input-title">Название команды</label>
-                        <input type="text" name="Команда" class="t-input" placeholder="Введите название вашей команды">
+                        <label class="t-input-title">Название команды / Пожелания</label>
+                        <input type="text" name="Команда" class="t-input" placeholder="Введите название или пожелания">
                     </div>
 
-                    <button type="submit" class="t-submit">Забронировать места</button>
+                    <button type="submit" class="t-submit">Зарегистрироваться на квиз</button>
                 </form>
             </div>
         </div>
     </section>
+
+    <script>
+        function showQuiz(quizName) {
+            // Скрыть все табы
+            const tabs = document.querySelectorAll('.quiz-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Показать выбранный таб
+            document.getElementById(quizName).classList.add('active');
+            
+            // Обновить кнопки фильтра
+            const buttons = document.querySelectorAll('.quiz-filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Плавный скролл к контенту
+            const contentSection = document.querySelector('.content-section');
+            if (contentSection) {
+                contentSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
 
 </body>
 </html>
